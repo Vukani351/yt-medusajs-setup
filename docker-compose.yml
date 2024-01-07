@@ -4,9 +4,14 @@ services:
     image: postgres
     volumes:
       - postgres-db:/var/lib/postgresql/data
-    env_file:
-      - ./.env
+    environment:
+      - POSTGRES_DB=medusa_db
+      - POSTGRES_USER=root
+      - POSTGRES_PASSWORD=password
+    # env_file:
+    #   - ./.env
     ports:
       - 5432:5432
 volumes:
   postgres-db:
+
